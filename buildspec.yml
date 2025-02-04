@@ -6,7 +6,7 @@ phases:
       java: 17
     commands:
       - export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which javac))))
-      - echo "JAVA_HOME definido como: $JAVA_HOME"
+      - echo $JAVA_HOME
       - export PATH=$JAVA_HOME/bin:$PATH
   pre_build:
     commands:
