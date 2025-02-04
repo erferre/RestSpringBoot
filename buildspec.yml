@@ -22,8 +22,9 @@ phases:
   post_build:
     commands:
       - zip -r testDemo.zip appspec.yml scripts/ target/springbootwildfly-0.0.1-SNAPSHOT.jar
+      - ls -lrt
       - echo "Compilación completada. Preparando artefactos..."
 artifacts:
   files:
-    - target/*.jar
+    - *.zip
   discard-paths: yes
