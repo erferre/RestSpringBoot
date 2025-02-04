@@ -21,6 +21,8 @@ phases:
       - mvn package -DskipTests
   post_build:
     commands:
+      - ls -lrt
+      - ls -lrt target/
       - echo "Compilación completada. Preparando artefactos..."
 artifacts:
   files:
