@@ -1,0 +1,6 @@
+#!/bin/bash
+isExistApp = `pgrep springbootwildfly`
+if [[ -n  $isExistApp ]]; then
+    pkill java     
+fi
+
