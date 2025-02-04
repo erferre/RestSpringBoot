@@ -26,5 +26,5 @@ phases:
       - echo "Compilación completada. Preparando artefactos..."
 artifacts:
   files:
-    - *.zip
+    - testDemo.zip
   discard-paths: yes
