@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      java: 8
+      java: 17
     commands:
       - echo "Instalando dependencias..."
       - yum install -y git
