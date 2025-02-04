@@ -3,21 +3,28 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      java: 8
+      java: corretto8
     commands:
-      - echo "Instalando dependencias..."
+      - echo "Instalando dependencias necesarias...."
+      - yum update -y
       - yum install -y git
+      - export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which javac))))
+      - echo "JAVA_HOME definido como: $JAVA_HOME"
+      - export PATH=$JAVA_HOME/bin:$PATH
   pre_build:
     commands:
+      - echo "Verificando versión de Java y Maven..."
+      - java -version
+      - mvn -version
       - echo "Descargando dependencias Maven..."
       - mvn clean install -DskipTests
   build:
     commands:
-      - echo "Compilando el proyecto..."
+      - echo "Compilando el proyecto con Maven..."
       - mvn package -DskipTests
   post_build:
     commands:
-      - echo "Compilación completada. Generando artefactos..."
+      - echo "Compilación completada. Preparando artefactos..."
 artifacts:
   files:
     - target/*.jar
