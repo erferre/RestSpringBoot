@@ -21,10 +21,11 @@ phases:
       - mvn package -DskipTests
   post_build:
     commands:
-      - zip -r testDemo.zip appspec.yml scripts/ target/springbootwildfly-0.0.1-SNAPSHOT.jar
       - ls -lrt
       - echo "Compilación completada. Preparando artefactos..."
 artifacts:
   files:
-    - testDemo.zip
+    - appspec.yml
+    - scripts/*
+    - target/springbootwildfly-0.0.1-SNAPSHOT.jar    
   discard-paths: yes

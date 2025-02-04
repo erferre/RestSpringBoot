@@ -1,15 +1,15 @@
 version: 0.0
 os: linux
 files:
-  - source: target/springbootwildfly-0.0.1-SNAPSHOT.jar
+  - source: springbootwildfly-0.0.1-SNAPSHOT.jar
     destination: /tmp
 hooks:
   BeforeInstall:
-    - location: scripts/start_server
+    - location: start_server
       timeout: 300
       runas: root
   ApplicationStop:
-    - location: scripts/stop_server
+    - location: stop_server
       timeout: 300
       runas: root
 
