@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: 8
+    commands:
+      - echo "Instalando dependencias..."
+      - yum install -y git
+  pre_build:
+    commands:
+      - echo "Descargando dependencias Maven..."
+      - mvn clean install -DskipTests
+  build:
+    commands:
+      - echo "Compilando el proyecto..."
+      - mvn package -DskipTests
+  post_build:
+    commands:
+      - echo "Compilación completada. Generando artefactos..."
+artifacts:
+  files:
+    - target/*.jar
+  discard-paths: yes
