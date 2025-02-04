@@ -3,11 +3,8 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      java: corretto8
+      java: 17
     commands:
-      - echo "Instalando dependencias necesarias..."
-      - yum update -y
-      - yum install -y git
       - export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which javac))))
       - echo "JAVA_HOME definido como: $JAVA_HOME"
       - export PATH=$JAVA_HOME/bin:$PATH
