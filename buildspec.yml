@@ -5,7 +5,7 @@ phases:
     runtime-versions:
       java: corretto8
     commands:
-      - echo "Instalando dependencias necesarias...."
+      - echo "Instalando dependencias necesarias..."
       - yum update -y
       - yum install -y git
       - export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which javac))))
