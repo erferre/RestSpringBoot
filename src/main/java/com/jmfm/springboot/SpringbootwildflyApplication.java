@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 // Spring Boot 2.x
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
+// Spring Boot 1.x
+//import org.springframework.boot.web.support.SpringBootServletInitializer;
  
 @SpringBootApplication
 public class SpringbootwildflyApplication extends SpringBootServletInitializer {
@@ -27,12 +29,12 @@ public class SpringbootwildflyApplication extends SpringBootServletInitializer {
 }
  
 @RestController
-class BaseController {
+class HelloController {
  
-    @RequestMapping("/base/{parametro}")
-    String hello(@PathVariable String parametro) {
+    @RequestMapping("/hello/{name}")
+    String hello(@PathVariable String name) {
  
-        return "Parametro pasado: " + parametro + " !";
+        return "Hi " + name + " !";
  
     }
 }
